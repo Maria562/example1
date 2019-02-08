@@ -1,0 +1,136 @@
+
+    <div class="container-fluid padding-none">
+      <div class="row no-gutters">
+        <div class="col-1 bg-success">
+             Menu
+        </div>
+        <div class="col-11 bg-warning">
+          
+ 
+
+<div class="container-fluid">
+
+  <h2>Accordion Example</h2>
+  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+  
+  
+  <div id="accordion">
+
+      <div class="row no-gutters">
+          <div class="col-2 bg-success">
+
+      <div *ngIf="categories$">
+          <div  class="card" *ngFor="let category of  categories$.Categories">
+
+              
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#a{{ category.Id }}">
+                  {{ category.Name }}
+              </a>
+            </div>
+
+            <div *ngFor="let subcat of category.SubCategories">
+                <a class="card-link" data-toggle="collapse" href="#a{{ subcat.Id }}">
+                <p style="color: red; font-style: italic; font-family:fantasy">
+                   SUBCAT NAME: {{ subcat.Name }}</p>
+                  </a>
+                  
+                  <div *ngFor="let subcat2 of subcat.SubCategories">
+                      <a class="card-link" data-toggle="collapse" href="#a{{ subcat2.Id }}">
+                      <p style="color: blue; font-style: italic; font-family:fantasy; padding: 10px;">
+                          SUBCAT2 NAME: {{ subcat2.Name }}</p>
+                        </a>             
+                  </div>
+
+            </div>
+           
+    
+            
+          </div>
+        
+        </div>
+
+      </div>
+        
+   
+      <div class="col-10 bg-warning">
+
+        <div *ngIf="categories$">
+            <div  class="card" *ngFor="let category of  categories$.Categories">
+  
+                            <div id="a{{ category.Id}}" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <div *ngFor="let menuitem of category.ScreenMenuItems">
+                
+                        <p style="color: purple;"> MENU ITEM: {{ menuitem.Name }}</p>
+                      
+                     
+                     
+                      </div>    
+                </div>
+              </div>
+             
+              
+            </div>
+
+          
+
+          
+          </div>
+
+
+          
+
+
+        </div>
+      </div>
+        
+
+      </div>
+
+</div>
+
+
+  
+
+  
+
+<div *ngIf="categories$">
+  <div *ngFor="let category of  categories$.Categories">
+  
+    <h2> CATEGORY NAME: {{ category.Name }}</h2>
+
+    <div *ngFor="let menuitem of category.ScreenMenuItems">
+      
+      <p style="color: green;"> MENU ITEM: {{ menuitem.Name }}</p>
+    
+   
+   
+  </div>
+
+    <div *ngFor="let subcat of category.SubCategories">
+      
+        <p style="color: red; font-style: italic; font-family:fantasy"> SUBCAT NAME: {{ subcat.Name }}</p>
+            
+        <div *ngFor="let submenuitem of subcat.ScreenMenuItems">
+      
+          <p style="color: purple; font-style: italic; font-family:fantasy"> SUBCAT MENU ITEM: {{ submenuitem.Name }}</p>
+        
+       
+       
+      </div>
+     
+    </div>
+
+
+    
+   
+    
+  </div>
+
+</div>
+ 
+
+</div>
+</div>
+</div>
